@@ -417,72 +417,62 @@ export default function Home() {
           </div> */}
 
           {/* Interactive Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-            <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
-              <div className="bg-pink-100 p-4 rounded-full mb-4">
-                <Image
-                  src="/placeholder.svg?height=60&width=60&query=musical notes and animal sounds, icon"
-                  alt="音が鳴る機能"
-                  width={60}
-                  height={60}
-                />
+          <div className="flex flex-col items-center w-full mb-12">
+            {/* 1段目 3枚 */}
+            <div className="flex flex-col md:flex-row justify-center gap-6 w-full mb-6">
+              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
+                <div className="bg-pink-100 p-4 rounded-full mb-4">
+                  <Image src="/placeholder.svg?height=60&width=60&query=musical notes and animal sounds, icon" alt="音が鳴る機能" width={60} height={60} />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">タップで音が鳴る</h3>
+                <p className="text-sm sm:text-base text-gray-600">楽器や動物など、画面をタップすると音が鳴る仕掛けが楽しめます</p>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">タップで音が鳴る</h3>
-              <p className="text-sm sm:text-base text-gray-600">楽器や動物など、画面をタップすると音が鳴る仕掛けが楽しめます</p>
+              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
+                <div className="bg-blue-100 p-4 rounded-full mb-4">
+                  <Image src="/placeholder.svg?height=60&width=60&query=animated character talking, icon" alt="動くキャラクター" width={60} height={60} />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">キャラクターが動く</h3>
+                <p className="text-sm sm:text-base text-gray-600">キャラクターが「しゃべる・笑う・動く」インタラクティブな体験</p>
+              </div>
+              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
+                <div className="bg-green-100 p-4 rounded-full mb-4">
+                  <Image src="/placeholder.svg?height=60&width=60&query=story branching paths, icon" alt="ストーリー分岐" width={60} height={60} />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">ストーリーが分岐</h3>
+                <p className="text-sm sm:text-base text-gray-600">選択肢によってストーリーが変わる、何度も楽しめる仕掛け</p>
+              </div>
             </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
-              <div className="bg-blue-100 p-4 rounded-full mb-4">
-                <Image
-                  src="/placeholder.svg?height=60&width=60&query=animated character talking, icon"
-                  alt="動くキャラクター"
-                  width={60}
-                  height={60}
-                />
+            {/* 2段目 2枚 */}
+            <div className="flex justify-center gap-6 w-full mb-6">
+              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
+                <div className="bg-yellow-100 p-4 rounded-full mb-4">
+                  <Image src="/placeholder.svg?height=60&width=60&query=audio narration, icon" alt="ナレーション機能" width={60} height={60} />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">ナレーション付き</h3>
+                <p className="text-sm sm:text-base text-gray-600">読み聞かせ不要で、子どもだけでも楽しめる音声ナレーション</p>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">キャラクターが動く</h3>
-              <p className="text-sm sm:text-base text-gray-600">キャラクターが「しゃべる・笑う・動く」インタラクティブな体験</p>
+              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
+                <div className="bg-purple-100 p-4 rounded-full mb-4">
+                  <Image src="/placeholder.svg?height=60&width=60&query=reading history and tracking, icon" alt="読書記録" width={60} height={60} />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">読書記録が残る</h3>
+                <p className="text-sm sm:text-base text-gray-600">絵本を読んだ記録が残り、成長の振り返りができます</p>
+              </div>
             </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
-              <div className="bg-green-100 p-4 rounded-full mb-4">
-                <Image
-                  src="/placeholder.svg?height=60&width=60&query=story branching paths, icon"
-                  alt="ストーリー分岐"
-                  width={60}
-                  height={60}
-                />
+            {/* 3段目 1枚（英語学習機能） */}
+            <div className="flex justify-center w-full">
+              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
+                <div className="bg-green-100 p-4 rounded-full mb-4">
+                  <Image src="/placeholder.svg?height=60&width=60&query=english learning icon with globe" alt="英語学習機能" width={60} height={60} />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">英語学習機能</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">興味のある物語を通じて、自然に英語を学べる機能を追加予定</p>
+                <ul className="space-y-2 text-sm sm:text-base text-gray-600">
+                  <li className="flex items-center justify-center"><span className="text-green-500 mr-2">✓</span>日本語と英語の切り替え表示</li>
+                  <li className="flex items-center justify-center"><span className="text-green-500 mr-2">✓</span>ネイティブスピーカーによる音声読み上げ</li>
+                  <li className="flex items-center justify-center"><span className="text-green-500 mr-2">✓</span>興味のある単語から自然に語彙を増やす</li>
+                </ul>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">ストーリーが分岐</h3>
-              <p className="text-sm sm:text-base text-gray-600">選択肢によってストーリーが変わる、何度も楽しめる仕掛け</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-            <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
-              <div className="bg-yellow-100 p-4 rounded-full mb-4">
-                <Image
-                  src="/placeholder.svg?height=60&width=60&query=audio narration, icon"
-                  alt="ナレーション機能"
-                  width={60}
-                  height={60}
-                />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">ナレーション付き</h3>
-              <p className="text-sm sm:text-base text-gray-600">読み聞かせ不要で、子どもだけでも楽しめる音声ナレーション</p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center">
-              <div className="bg-purple-100 p-4 rounded-full mb-4">
-                <Image
-                  src="/placeholder.svg?height=60&width=60&query=reading history and tracking, icon"
-                  alt="読書記録"
-                  width={60}
-                  height={60}
-                />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">読書記録が残る</h3>
-              <p className="text-sm sm:text-base text-gray-600">絵本を読んだ記録が残り、成長の振り返りができます</p>
             </div>
           </div>
 
