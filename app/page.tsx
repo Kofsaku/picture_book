@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import BookForm from "@/components/book-form"
 import Header from "@/components/header"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import InteractiveEbookDemo from "@/components/interactive-ebook-demo"
 
 export default function Home() {
   return (
@@ -391,30 +392,9 @@ export default function Home() {
           </p>
 
           {/* Future Features Demo */}
-          {/* <div className="max-w-4xl mx-auto mb-12 bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-              <h3 className="text-xl font-bold text-center">将来機能のイメージデモ</h3>
-            </div>
-            <div className="p-6">
-              <div className="aspect-video relative bg-gray-100 rounded-lg overflow-hidden mb-4">
-                <Image
-                  src="/placeholder.svg?height=400&width=800&query=interactive children book app demo with animations and sounds"
-                  alt="インタラクティブ絵本デモ"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/80 px-6 py-4 rounded-lg text-center">
-                    <p className="text-lg font-semibold text-gray-800">
-                      タップで動く・音が鳴る・ストーリーが分岐する
-                      <br />
-                      インタラクティブな絵本体験（開発中）
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <InteractiveEbookDemo />
+          </div>
 
           {/* Interactive Features */}
           <div className="flex flex-col items-center w-full mb-12">
