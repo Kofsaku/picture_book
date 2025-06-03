@@ -94,7 +94,68 @@ body {
   }
 }
 
-/* Book container styling */
+/* Turn.js specific styles */
+#flipbook {
+  width: 800px !important;
+  height: 600px !important;
+  margin: 0 auto;
+  position: relative;
+}
+
+#flipbook .flipbook-page {
+  width: 400px !important;
+  height: 600px !important;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background-color: #fff8e6;
+  position: relative;
+  overflow: hidden;
+  display: block !important;
+}
+
+/* Turn.js page wrapper */
+.turn-page {
+  background-color: transparent !important;
+}
+
+.turn-page-wrapper {
+  perspective: 2000px;
+}
+
+/* Shadow effects for turn.js */
+.turn-page .shadow {
+  background: linear-gradient(to right, rgba(0,0,0,0.3), transparent 40%);
+}
+
+/* Responsive design for turn.js */
+@media (max-width: 768px) {
+  #flipbook {
+    width: 600px !important;
+    height: 450px !important;
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+
+  #flipbook .flipbook-page {
+    width: 300px !important;
+    height: 450px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #flipbook {
+    width: 400px !important;
+    height: 300px !important;
+    transform: scale(0.7);
+  }
+
+  #flipbook .flipbook-page {
+    width: 200px !important;
+    height: 300px !important;
+  }
+}
+
+/* Original CSS animations (fallback) */
 .book-container {
   width: 100%;
   max-width: 800px;
@@ -448,136 +509,6 @@ body {
   flex-direction: column;
   position: relative;
   z-index: 1;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .book-container {
-    aspect-ratio: 3 / 4;
-  }
-
-  .book {
-    flex-direction: column;
-  }
-
-  .page {
-    width: 100%;
-    height: 50%;
-  }
-
-  .left-page {
-    top: 0;
-    border-radius: 5px 5px 0 0;
-    border-right: 4px solid #fde9b2;
-    border-bottom: 2px solid #e6d7b9;
-  }
-
-  .right-page {
-    top: 50%;
-    border-radius: 0 0 5px 5px;
-    border-left: 4px solid #fde9b2;
-    border-top: 2px solid #e6d7b9;
-    transform-origin: top center;
-  }
-
-  .next-page {
-    top: 50%;
-    border-radius: 0 0 5px 5px;
-    border-left: 4px solid #fde9b2;
-    border-top: 2px solid #e6d7b9;
-  }
-
-  .story-text-overlay p {
-    font-size: 1.25rem;
-    line-height: 1.8;
-  }
-
-  /* Mobile animations */
-  @keyframes smoothPageTurnNext {
-    0% {
-      transform: rotateX(0deg);
-      filter: brightness(1);
-    }
-    10% {
-      transform: rotateX(25deg) translateZ(8px) translateY(-3px);
-      filter: brightness(1.03);
-    }
-    20% {
-      transform: rotateX(45deg) translateZ(12px) translateY(-5px);
-      filter: brightness(1.05);
-    }
-    30% {
-      transform: rotateX(75deg) translateZ(15px) translateY(-7px);
-      filter: brightness(1.07);
-    }
-    40% {
-      transform: rotateX(105deg) translateZ(15px) translateY(-7px);
-      filter: brightness(1.07);
-    }
-    50% {
-      transform: rotateX(135deg) translateZ(12px) translateY(-5px);
-      filter: brightness(1.05);
-    }
-    60% {
-      transform: rotateX(155deg) translateZ(8px) translateY(-3px);
-      filter: brightness(1.03);
-    }
-    70% {
-      transform: rotateX(170deg) translateZ(3px) translateY(-1px);
-      filter: brightness(1.01);
-    }
-    80% {
-      transform: rotateX(178deg) translateZ(1px) translateY(-0.2px);
-      filter: brightness(1.002);
-    }
-    100% {
-      transform: rotateX(180deg);
-      filter: brightness(1);
-    }
-  }
-
-  @keyframes smoothPageTurnPrev {
-    0% {
-      transform: rotateX(180deg);
-      filter: brightness(1);
-    }
-    10% {
-      transform: rotateX(155deg) translateZ(8px) translateY(-3px);
-      filter: brightness(1.03);
-    }
-    20% {
-      transform: rotateX(135deg) translateZ(12px) translateY(-5px);
-      filter: brightness(1.05);
-    }
-    30% {
-      transform: rotateX(105deg) translateZ(15px) translateY(-7px);
-      filter: brightness(1.07);
-    }
-    40% {
-      transform: rotateX(75deg) translateZ(15px) translateY(-7px);
-      filter: brightness(1.07);
-    }
-    50% {
-      transform: rotateX(45deg) translateZ(12px) translateY(-5px);
-      filter: brightness(1.05);
-    }
-    60% {
-      transform: rotateX(25deg) translateZ(8px) translateY(-3px);
-      filter: brightness(1.03);
-    }
-    70% {
-      transform: rotateX(10deg) translateZ(3px) translateY(-1px);
-      filter: brightness(1.01);
-    }
-    80% {
-      transform: rotateX(2deg) translateZ(1px) translateY(-0.2px);
-      filter: brightness(1.002);
-    }
-    100% {
-      transform: rotateX(0deg);
-      filter: brightness(1);
-    }
-  }
 }
 
 @media (min-width: 769px) {

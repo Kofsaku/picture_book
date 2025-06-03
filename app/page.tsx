@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import BookForm from "@/components/book-form"
 import Header from "@/components/header"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import InteractiveEbookDemo from "@/components/interactive-ebook-demo"
+import TurnjsFlipbook from "@/components/turnjs-flipbook"
 
 export default function Home() {
   return (
@@ -393,7 +393,7 @@ export default function Home() {
 
           {/* Future Features Demo */}
           <div className="max-w-4xl mx-auto mb-12">
-            <InteractiveEbookDemo />
+            <TurnjsFlipbook />
           </div>
 
           {/* Interactive Features */}
