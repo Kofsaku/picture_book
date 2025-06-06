@@ -133,11 +133,31 @@ function getHalfImageSync(src: string, side: 'left' | 'right', onReady: (url: st
   img.src = src;
 }
 
+// カスタムフック: 画像の左右半分のDataURLを取得
+function useHalfImage(image: string | undefined, side: 'left' | 'right') {
+  const [halfImg, setHalfImg] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    if (image) {
+      getHalfImageSync(image, side, setHalfImg);
+    }
+  }, [image, side]);
+  return halfImg;
+}
+
 const TurnjsFlipbook: React.FC = () => {
   const flipbookRef = useRef<HTMLDivElement>(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [isReady, setIsReady] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const [isPortrait, setIsPortrait] = useState(false)
+  const [flipbookSize, setFlipbookSize] = useState({ width: 800, height: 600 });
+
+  // 各ページの左右画像を先に計算
+  const halfImages = pages.map((page, index) => {
+    if (index === 0 || !page.image) return null;
+    const side: 'left' | 'right' = (index % 2 === 0) ? 'right' : 'left';
+    return useHalfImage(page.image, side);
+  });
 
   useEffect(() => {
     let isMounted = true
@@ -203,13 +223,13 @@ const TurnjsFlipbook: React.FC = () => {
 
         // Flipbookを初期化
         $flipbook.turn({
-          width: 800,
-          height: 600,
+          width: flipbookSize.width,
+          height: flipbookSize.height,
           autoCenter: true,
           elevation: 20,
           gradients: true,
           duration: 800,
-          display: 'double',
+          display: (typeof window !== 'undefined' && window.innerWidth <= 768) ? 'single' : 'double',
           when: {
             turning: function(event: any, page: number) {
               if (isMounted) setCurrentPage(page)
@@ -250,6 +270,47 @@ const TurnjsFlipbook: React.FC = () => {
     }
   }, [])
 
+  useEffect(() => {
+    // 画面の向きを判定する関数
+    const checkOrientation = () => {
+      if (typeof window !== 'undefined') {
+        setIsPortrait(window.innerHeight > window.innerWidth)
+      }
+    }
+    checkOrientation()
+    window.addEventListener('resize', checkOrientation)
+    window.addEventListener('orientationchange', checkOrientation)
+    return () => {
+      window.removeEventListener('resize', checkOrientation)
+      window.removeEventListener('orientationchange', checkOrientation)
+    }
+  }, [])
+
+  useEffect(() => {
+    function updateSize() {
+      if (typeof window !== 'undefined') {
+        // ヘッダーの高さを仮に64pxとする
+        const headerHeight = 64;
+        const maxW = window.innerWidth;
+        const maxH = window.innerHeight - headerHeight;
+        // 絵本のアスペクト比 4:3
+        let width = maxW * 0.96;
+        let height = width * 0.75;
+        if (height > maxH * 0.96) {
+          height = maxH * 0.96;
+          width = height * (4 / 3);
+        }
+        // 最小サイズ制限
+        width = Math.max(width, 240);
+        height = Math.max(height, 180);
+        setFlipbookSize({ width, height });
+      }
+    }
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   const goToNextPage = () => {
     if (flipbookRef.current && window.$ && isReady) {
       const $flipbook = window.$(flipbookRef.current)
@@ -275,6 +336,8 @@ const TurnjsFlipbook: React.FC = () => {
   const totalPages = pages.length
 
   const renderPageContent = (page: PageData, index: number) => {
+    // スマホ判定
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
     // デフォルトで表示される表紙（index 0, type: 'cover'）を右ページ全体で大きく表示
     if (index === 0 && page.type === 'cover') {
       return (
@@ -285,9 +348,9 @@ const TurnjsFlipbook: React.FC = () => {
             style={{
               maxHeight: '100%',
               maxWidth: '100%',
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
+              width: isMobile ? '100%' : '100%',
+              height: isMobile ? '100%' : '100%',
+              objectFit: isMobile ? 'contain' : 'contain',
               display: 'block',
               margin: 0,
               padding: 0,
@@ -321,17 +384,27 @@ const TurnjsFlipbook: React.FC = () => {
       if (index === 0) {
         return <div className="h-full w-full bg-transparent" />;
       }
-      const [halfImg, setHalfImg] = React.useState<string | null>(null);
-      React.useEffect(() => {
-        getHalfImageSync(page.image!, side, setHalfImg);
-      }, [page.image, side]);
+      const halfImg = halfImages[index];
       return (
         <div className="h-full w-full flex flex-col relative p-0 m-0" style={{boxSizing: 'border-box'}}>
           {halfImg && (
             <img
               src={halfImg}
               alt="page"
-              style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', boxSizing: 'border-box', border: 0, padding: 0, margin: 0}}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                maxWidth: '100%',
+                maxHeight: '100%',
+                boxSizing: 'border-box',
+                border: 0,
+                padding: 0,
+                margin: 0,
+                display: 'block'
+              }}
               draggable={false}
             />
           )}
@@ -407,6 +480,18 @@ const TurnjsFlipbook: React.FC = () => {
     )
   }
 
+  if (isPortrait) {
+    return (
+      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/95 backdrop-blur-lg">
+        <div className="flex flex-col items-center justify-center p-8">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#f472b6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mb-6 animate-bounce"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/></svg>
+          <div className="text-2xl font-bold text-pink-500 mb-2">横向きにしてください</div>
+          <div className="text-gray-700 text-base">この絵本はスマートフォンを横向き（ランドスケープ）でご覧ください。</div>
+        </div>
+      </div>
+    )
+  }
+
   if (hasError) {
     return (
       <div className="relative w-full h-[600px] bg-amber-50 rounded-lg shadow-lg overflow-hidden flex items-center justify-center">
@@ -426,15 +511,18 @@ const TurnjsFlipbook: React.FC = () => {
 
   return (
     <>
-      <div className="relative w-full bg-amber-50 rounded-lg shadow-lg overflow-hidden" style={{ height: '650px', marginBottom: '70px' }}>
+      <div className="relative w-full bg-amber-50 rounded-lg shadow-lg overflow-hidden flex justify-center items-center" style={{ height: `${flipbookSize.height + 50}px`, marginBottom: '70px' }}>
         <div 
           ref={flipbookRef}
           id="flipbook"
           className="mx-auto"
           style={{ 
             margin: '25px auto',
-            width: '800px',
-            height: '600px'
+            width: `${flipbookSize.width}px`,
+            height: `${flipbookSize.height}px`,
+            maxWidth: '100vw',
+            maxHeight: 'calc(100vh - 64px)',
+            transition: 'width 0.2s, height 0.2s',
           }}
         >
           {pages.map((page, index) => (
@@ -442,13 +530,12 @@ const TurnjsFlipbook: React.FC = () => {
               key={page.id}
               className="flipbook-page relative"
               style={{
-                backgroundImage: `url(${page.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 backgroundColor: '#fff8e6',
                 border: '1px solid #fde9b2',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                height: '100%',
+                width: '100%',
               }}
             >
               {/* 背景用オーバーレイ */}
