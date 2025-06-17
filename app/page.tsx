@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import BookForm from "@/components/book-form"
 import Header from "@/components/header"
+import { BookCover } from "@/components/book-demo/BookCover"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 export default function Home() {
@@ -251,6 +252,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Book Cover Section */}
+      <BookCover />
 
       {/* Process Section */}
       <section className="py-16 bg-blue-50">

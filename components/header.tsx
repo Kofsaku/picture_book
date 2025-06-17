@@ -51,24 +51,18 @@ export default function Header() {
           >
             特徴
           </button>
+          <Link
+            href="/demo"
+            className="text-gray-700 hover:text-pink-600 transition-colors"
+          >
+            絵本デモ
+          </Link>
           <button
             onClick={() => scrollToSection("education")}
             className="text-gray-700 hover:text-pink-600 transition-colors"
           >
             教育効果
           </button>
-          <button
-            onClick={() => scrollToSection("future")}
-            className="text-gray-700 hover:text-pink-600 transition-colors"
-          >
-            将来機能
-          </button>
-          {/* <button
-            onClick={() => scrollToSection("samples")}
-            className="text-gray-700 hover:text-pink-600 transition-colors"
-          >
-            サンプル
-          </button> */}
           <button
             onClick={() => scrollToSection("faq")}
             className="text-gray-700 hover:text-pink-600 transition-colors"
@@ -105,23 +99,18 @@ export default function Header() {
             >
               特徴
             </button>
+            <Link
+              href="/demo"
+              className="text-gray-700 hover:text-pink-600 transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              絵本デモ
+            </Link>
             <button
               onClick={() => scrollToSection("education")}
               className="text-gray-700 hover:text-pink-600 transition-colors py-2"
             >
               教育効果
-            </button>
-            <button
-              onClick={() => scrollToSection("future")}
-              className="text-gray-700 hover:text-pink-600 transition-colors py-2"
-            >
-              将来機能
-            </button>
-            <button
-              onClick={() => scrollToSection("samples")}
-              className="text-gray-700 hover:text-pink-600 transition-colors py-2"
-            >
-              サンプル
             </button>
             <button
               onClick={() => scrollToSection("faq")}
