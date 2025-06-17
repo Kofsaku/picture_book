@@ -12,6 +12,41 @@ body {
   }
 }
 
+@layer components {
+  .book-container {
+    @apply relative w-full h-full flex;
+    perspective: 2000px;
+  }
+
+  .page {
+    @apply relative w-1/2 h-full overflow-hidden;
+    transform-origin: left center;
+    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    backface-visibility: hidden;
+  }
+
+  .right-page {
+    transform-origin: left center;
+  }
+
+  .flipping-next {
+    transform: rotateY(-180deg);
+  }
+
+  .flipping-prev {
+    transform: rotateY(0deg);
+  }
+
+  .story-text-overlay {
+    @apply absolute inset-0 p-8 flex items-center justify-center;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .story-text-overlay p {
+    @apply text-lg text-amber-800 leading-relaxed;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
