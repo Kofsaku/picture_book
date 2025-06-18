@@ -18,12 +18,13 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section id="hero" className="container mx-auto px-4 pt-32 pb-12 md:py-32 flex flex-col md:flex-row items-center">
-        <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight">
+      <section id="hero" className="relative overflow-hidden" style={{ backgroundColor: '#fee425' }}>
+        <div className="relative z-10 container mx-auto px-4 pt-28 pb-16 md:py-20 flex flex-col md:flex-row items-center">
+        <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8 text-center md:text-left">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight" style={{ color: '#2d5016', textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
             世界にひとつだけの絵本を、あなたの子どもに。
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8">
+          <p className="text-base sm:text-lg md:text-xl mb-8" style={{ color: '#2d5016', textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
             名前・性格・好きなことに合わせて物語が変わる。
             <br />
             AIと作家が"わが子専用のストーリー"をPDFでお届け。
@@ -32,7 +33,7 @@ export default function Home() {
           </p>
           <Button
             size="lg"
-            className="bg-pink-500 hover:bg-pink-600 text-white rounded-full px-8 py-6 text-lg"
+            className="bg-green-700 hover:bg-green-800 text-white rounded-full px-8 py-6 text-lg mx-auto md:mx-0"
             onClick={() => {
               document.getElementById("form")?.scrollIntoView({ behavior: "smooth" })
             }}
@@ -40,21 +41,21 @@ export default function Home() {
             無料で絵本を作ってもらう
           </Button>
         </div>
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 flex justify-center items-center">
           <Image
-            src="/parent-child-reading.png"
-            alt="親子で絵本を読んでいる様子"
-            width={500}
-            height={400}
-            className="rounded-lg shadow-lg"
+            src="/hero-illustration.webp"
+            alt="絵本のイラスト"
+            width={800}
+            height={640}
+            className=""
           />
         </div>
+        </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+          <ChevronDown className="animate-bounce w-8 h-8" style={{ color: '#2d5016' }} />
+        </div>
       </section>
-
-      {/* Scroll indicator */}
-      <div className="flex justify-center mb-12">
-        <ChevronDown className="animate-bounce w-8 h-8 text-pink-500" />
-      </div>
 
       {/* Differentiation Section - NEW */}
       {/* <section className="bg-gradient-to-r from-pink-50 to-blue-50 py-10">
@@ -114,18 +115,18 @@ export default function Home() {
             </div>
             <div className="bg-pink-50 rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0">
               <Image
-                src="/personalized-childrens-book.png"
+                src="/name-in-story-icon.webp"
                 alt="名前入り絵本"
                 width={150}
                 height={150}
-                className="mx-auto mb-4 rounded-full"
+                className="mx-auto mb-4 rounded-full object-cover"
               />
               <h3 className="text-xl font-semibold text-center mb-2">名前が物語に登場</h3>
               <p className="text-gray-600 text-center">主人公はお子さま自身。名前が出てくると子どもは大喜びします</p>
             </div>
             <div className="bg-yellow-50 rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0">
               <Image
-                src="/parent-child-reading.png"
+                src="/parent-child-reading.webp"
                 alt="親子の絆"
                 width={150}
                 height={150}
@@ -192,11 +193,11 @@ export default function Home() {
             </ul>
             <p className="text-xs sm:text-sm text-gray-500 mt-4 italic">出典：Cambridge Early Childhood Research Center (2019)</p>
           </div>
-          <p className="text-base sm:text-lg text-center mt-10 text-gray-700 max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mt-10 text-gray-800">
             興味から始まる絵本体験は、
             <br />
             読む・学ぶ・話すすべてを豊かにしてくれます。
-          </p>
+          </h2>
         </div>
       </section>
 
@@ -209,45 +210,54 @@ export default function Home() {
             あなたのお子さま専用のストーリーをお届けする絵本サービスです。
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-blue-50 p-6 rounded-lg text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-blue-50 rounded-lg text-center overflow-hidden">
+              <div className="">
                 <Image
-                  src="/placeholder.svg?height=40&width=40&query=AI and writer icon"
+                  src="/family-reading.webp"
                   alt="AI＋作家"
-                  width={40}
-                  height={40}
+                  width={200}
+                  height={150}
+                  className="object-cover w-full"
                 />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-3">AI＋作家が制作</h3>
-              <p className="text-sm sm:text-base text-gray-700">
-                子どもの名前、好きなもの、性格などをもとにAIがベースストーリーを生成し、編集スタッフが子どもに合う表現に調整しています
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3">AI＋作家が制作</h3>
+                <p className="text-sm sm:text-base text-gray-700">
+                  子どもの名前、好きなもの、性格などをもとにAIがベースストーリーを生成し、編集スタッフが子どもに合う表現に調整しています
+                </p>
+              </div>
             </div>
-            <div className="bg-pink-50 p-6 rounded-lg text-center">
-              <div className="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-pink-50 rounded-lg text-center overflow-hidden">
+              <div className="">
                 <Image
-                  src="/placeholder.svg?height=40&width=40&query=educational book icon"
+                  src="/educational-care.webp"
                   alt="教育的配慮"
-                  width={40}
-                  height={40}
+                  width={200}
+                  height={150}
+                  className="object-cover w-full"
                 />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-3">教育的な配慮</h3>
-              <p className="text-sm sm:text-base text-gray-700">
-                子どもの発達段階に合わせた言葉遣いと、愛着を持って読める構成になっています
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3">教育的な配慮</h3>
+                <p className="text-sm sm:text-base text-gray-700">
+                  子どもの発達段階に合わせた言葉遣いと、愛着を持って読める構成になっています
+                </p>
+              </div>
             </div>
-            <div className="bg-yellow-50 p-6 rounded-lg text-center">
-              <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-yellow-50 rounded-lg text-center overflow-hidden">
+              <div className="">
                 <Image
-                  src="/placeholder.svg?height=40&width=40&query=PDF delivery icon"
-                  alt="PDF配信"
-                  width={40}
-                  height={40}
+                  src="/digital-reading.webp"
+                  alt="デジタル読み放題"
+                  width={200}
+                  height={150}
+                  className="object-cover w-full"
                 />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-3">PDFでお届け</h3>
-              <p className="text-sm sm:text-base text-gray-700">完成した絵本はPDFでメールお届け（無料）。印刷版は今後対応予定です</p>
+              <div className="p-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3">デジタル読み放題</h3>
+                <p className="text-sm sm:text-base text-gray-700">オリジナルの絵本をスマホ・タブレットでいつでも、どこでも読み聞かせできます。たくさんの絵本を出先でもかさばらずに持ち運びが可能。製本版も今後対応予定です</p>
+              </div>
             </div>
           </div>
         </div>
@@ -268,10 +278,10 @@ export default function Home() {
                 1
               </div>
               <Image
-                src="/placeholder.svg?height=120&width=120&query=filling out form, simple illustration"
+                src="/process-step1.webp"
                 alt="質問に回答"
-                width={120}
-                height={120}
+                width={160}
+                height={160}
                 className="mb-4 rounded-lg"
               />
               <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center">簡単な質問に回答</h3>
@@ -282,10 +292,10 @@ export default function Home() {
                 2
               </div>
               <Image
-                src="/placeholder.svg?height=120&width=120&query=AI and writer creating book, illustration"
+                src="/process-step2.webp"
                 alt="絵本制作"
-                width={120}
-                height={120}
+                width={160}
+                height={160}
                 className="mb-4 rounded-lg"
               />
               <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center">AI＋作家が絵本を制作</h3>
@@ -298,15 +308,15 @@ export default function Home() {
                 3
               </div>
               <Image
-                src="/placeholder.svg?height=120&width=120&query=PDF book delivery, illustration"
-                alt="絵本お届け"
-                width={120}
-                height={120}
+                src="/process-step3.webp"
+                alt="デジタル読み放題"
+                width={160}
+                height={160}
                 className="mb-4 rounded-lg"
               />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center">絵本をPDFでお届け</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center">スマホ・タブレットで読み放題</h3>
               <p className="text-sm sm:text-base text-gray-600 text-center max-w-xs">
-                メールでPDF形式でお届けします（現在は印刷対応していません）
+                完成した絵本をスマートフォンやタブレットですぐにお楽しみいただけます
               </p>
             </div>
           </div>
@@ -425,22 +435,22 @@ export default function Home() {
             {/* 1段目 3枚 */}
             <div className="flex flex-col md:flex-row justify-center gap-6 w-full mb-6">
               <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="bg-pink-100 p-4 rounded-full mb-4">
-                  <Image src="/placeholder.svg?height=60&width=60&query=musical notes and animal sounds, icon" alt="音が鳴る機能" width={60} height={60} />
+                <div className="mb-4">
+                  <Image src="/tap-sound-icon.jpg" alt="音が鳴る機能" width={150} height={150} className="rounded-full object-cover" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">タップで音が鳴る</h3>
                 <p className="text-sm sm:text-base text-gray-600">楽器や動物など、画面をタップすると音が鳴る仕掛けが楽しめます</p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="bg-blue-100 p-4 rounded-full mb-4">
-                  <Image src="/placeholder.svg?height=60&width=60&query=animated character talking, icon" alt="動くキャラクター" width={60} height={60} />
+                <div className="mb-4">
+                  <Image src="/animated-character-icon.webp" alt="動くキャラクター" width={150} height={150} className="rounded-full object-cover" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">キャラクターが動く</h3>
                 <p className="text-sm sm:text-base text-gray-600">キャラクターが「しゃべる・笑う・動く」インタラクティブな体験</p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="bg-green-100 p-4 rounded-full mb-4">
-                  <Image src="/placeholder.svg?height=60&width=60&query=story branching paths, icon" alt="ストーリー分岐" width={60} height={60} />
+                <div className="mb-4">
+                  <Image src="/story-branching-icon.webp" alt="ストーリー分岐" width={150} height={150} className="rounded-full object-cover" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">ストーリーが分岐</h3>
                 <p className="text-sm sm:text-base text-gray-600">選択肢によってストーリーが変わる、何度も楽しめる仕掛け</p>
@@ -449,15 +459,15 @@ export default function Home() {
             {/* 2段目 2枚 */}
             <div className="flex justify-center gap-6 w-full mb-6">
               <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="bg-yellow-100 p-4 rounded-full mb-4">
-                  <Image src="/placeholder.svg?height=60&width=60&query=audio narration, icon" alt="ナレーション機能" width={60} height={60} />
+                <div className="mb-4">
+                  <Image src="/narration-icon.webp" alt="ナレーション機能" width={150} height={150} className="rounded-full object-cover" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">ナレーション付き</h3>
                 <p className="text-sm sm:text-base text-gray-600">読み聞かせ不要で、子どもだけでも楽しめる音声ナレーション</p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="bg-purple-100 p-4 rounded-full mb-4">
-                  <Image src="/placeholder.svg?height=60&width=60&query=reading history and tracking, icon" alt="読書記録" width={60} height={60} />
+                <div className="mb-4">
+                  <Image src="/reading-history-icon.webp" alt="読書記録" width={150} height={150} className="rounded-full object-cover" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">読書記録が残る</h3>
                 <p className="text-sm sm:text-base text-gray-600">絵本を読んだ記録が残り、成長の振り返りができます</p>
@@ -466,8 +476,8 @@ export default function Home() {
             {/* 3段目 1枚（英語学習機能） */}
             <div className="flex justify-center w-full">
               <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="bg-green-100 p-4 rounded-full mb-4">
-                  <Image src="/placeholder.svg?height=60&width=60&query=english learning icon with globe" alt="英語学習機能" width={60} height={60} />
+                <div className="mb-4">
+                  <Image src="/english-learning-icon.webp" alt="英語学習機能" width={150} height={150} className="rounded-full object-cover" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">英語学習機能</h3>
                 <p className="text-sm sm:text-base text-gray-600 mb-4">興味のある物語を通じて、自然に英語を学べる機能を追加予定</p>
@@ -484,41 +494,17 @@ export default function Home() {
           <div className="bg-white rounded-lg p-8 shadow-lg max-w-4xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 text-gray-800">今後の展望：さらに特別な体験を</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center p-4 border border-gray-200 rounded-lg">
-                <div className="bg-blue-100 p-3 rounded-full w-fit mx-auto mb-3">
-                  <Image
-                    src="/placeholder.svg?height=40&width=40&query=printed book icon"
-                    alt="印刷版"
-                    width={40}
-                    height={40}
-                  />
-                </div>
+              <div className="text-center p-6 border border-gray-200 rounded-lg">
                 <h4 className="text-base sm:text-lg font-semibold mb-2">高品質印刷版</h4>
                 <p className="text-xs sm:text-sm text-gray-600">手に取って読める、美しい印刷版絵本をお届け</p>
               </div>
 
-              <div className="text-center p-4 border border-gray-200 rounded-lg">
-                <div className="bg-green-100 p-3 rounded-full w-fit mx-auto mb-3">
-                  <Image
-                    src="/placeholder.svg?height=40&width=40&query=subscription box icon"
-                    alt="定期配信"
-                    width={40}
-                    height={40}
-                  />
-                </div>
+              <div className="text-center p-6 border border-gray-200 rounded-lg">
                 <h4 className="text-base sm:text-lg font-semibold mb-2">月1回の定期配信</h4>
                 <p className="text-xs sm:text-sm text-gray-600">成長に合わせて新しい絵本が毎月届く</p>
               </div>
 
-              <div className="text-center p-4 border border-gray-200 rounded-lg">
-                <div className="bg-purple-100 p-3 rounded-full w-fit mx-auto mb-3">
-                  <Image
-                    src="/placeholder.svg?height=40&width=40&query=growth record book icon"
-                    alt="成長記録"
-                    width={40}
-                    height={40}
-                  />
-                </div>
+              <div className="text-center p-6 border border-gray-200 rounded-lg">
                 <h4 className="text-base sm:text-lg font-semibold mb-2">成長記録帳連携</h4>
                 <p className="text-xs sm:text-sm text-gray-600">読書履歴と成長の記録を一冊にまとめて</p>
               </div>
