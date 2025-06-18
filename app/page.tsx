@@ -47,7 +47,7 @@ export default function Home() {
             alt="絵本のイラスト"
             width={800}
             height={640}
-            className=""
+            className="hero-float"
           />
         </div>
         </div>
@@ -80,8 +80,11 @@ export default function Home() {
       </section> */}
 
       {/* Empathy Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
+      <section 
+        className="py-16 bg-cover bg-center bg-no-repeat relative empathy-section"
+      >
+        <div className="absolute inset-0 bg-white bg-opacity-70"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-6 leading-tight">
               「絵本を読んでも、すぐ飽きてしまう…」
@@ -126,11 +129,11 @@ export default function Home() {
             </div>
             <div className="bg-yellow-50 rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0">
               <Image
-                src="/parent-child-reading.webp"
-                alt="親子の絆"
+                src="/parent-message-icon.webp"
+                alt="親からのメッセージ"
                 width={150}
                 height={150}
-                className="mx-auto mb-4 rounded-full"
+                className="mx-auto mb-4 rounded-full object-cover"
               />
               <h3 className="text-xl font-semibold text-center mb-2">親からのメッセージ</h3>
               <p className="text-gray-600 text-center">伝えたい想いを物語に込められます。特別な贈り物になります</p>
@@ -620,8 +623,9 @@ export default function Home() {
       </section>
 
       {/* Brand Vision Section - NEW */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-cover bg-center bg-no-repeat relative vision-section">
+        <div className="absolute inset-0 bg-white bg-opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-800">うちのこえほんのビジョン</h2>
             <div className="bg-gradient-to-r from-pink-50 to-blue-50 p-8 rounded-lg">
