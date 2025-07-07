@@ -31,67 +31,75 @@ export function NavigationControls({
     : "text-gray-600 bg-white/80";
 
   return (
-    <div className="flex items-center justify-center w-full gap-3 sm:gap-6">
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={onPrevious}
-        disabled={!canGoPrevious}
-        className={cn(
-          "flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-2 rounded-full",
-          buttonBaseClasses,
-          "disabled:opacity-30 disabled:cursor-not-allowed",
-          "transition-all duration-200"
-        )}
-        aria-label="前のページ"
-      >
-        <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-        <span className="text-xs font-medium hidden sm:inline">前</span>
-      </Button>
+    <div className="flex items-center justify-center w-full">
+      {/* デスクトップ表示 */}
+      <div className="hidden sm:flex items-center gap-6">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={onPrevious}
+          disabled={!canGoPrevious}
+          className={cn(
+            "flex items-center gap-1 px-3 py-2 rounded-full",
+            buttonBaseClasses,
+            "disabled:opacity-30 disabled:cursor-not-allowed",
+            "transition-all duration-200"
+          )}
+          aria-label="前のページ"
+        >
+          <ChevronLeft className="w-4 h-4" />
+          <span className="text-xs font-medium">前</span>
+        </Button>
 
-      <div className="flex items-center gap-2">
-        <div className="flex items-center gap-1">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                // This would need to be passed as a prop to directly navigate to a page
-                // For now, we'll just show the indicators
-              }}
-              className={cn(
-                "w-2 h-2 rounded-full transition-all duration-300 hover:scale-110",
-                index === currentPage - 1
-                  ? activeIndicatorClasses
-                  : indicatorClasses
-              )}
-              aria-label={`ページ ${index + 1}に移動`}
-            />
-          ))}
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  // This would need to be passed as a prop to directly navigate to a page
+                  // For now, we'll just show the indicators
+                }}
+                className={cn(
+                  "w-2 h-2 rounded-full transition-all duration-300 hover:scale-110",
+                  index === currentPage - 1
+                    ? activeIndicatorClasses
+                    : indicatorClasses
+                )}
+                aria-label={`ページ ${index + 1}に移動`}
+              />
+            ))}
+          </div>
+          <div className={cn(
+            "text-xs font-medium px-2 py-1 rounded-full",
+            pageCountClasses
+          )}>
+            {currentPage}/{totalPages}
+          </div>
         </div>
-        <div className={cn(
-          "text-xs font-medium px-2 py-1 rounded-full",
-          pageCountClasses
-        )}>
-          {currentPage}/{totalPages}
-        </div>
+
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={onNext}
+          disabled={!canGoNext}
+          className={cn(
+            "flex items-center gap-1 px-3 py-2 rounded-full",
+            buttonBaseClasses,
+            "disabled:opacity-30 disabled:cursor-not-allowed",
+            "transition-all duration-200"
+          )}
+          aria-label="次のページ"
+        >
+          <span className="text-xs font-medium">次</span>
+          <ChevronRight className="w-4 h-4" />
+        </Button>
       </div>
 
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={onNext}
-        disabled={!canGoNext}
-        className={cn(
-          "flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-2 rounded-full",
-          buttonBaseClasses,
-          "disabled:opacity-30 disabled:cursor-not-allowed",
-          "transition-all duration-200"
-        )}
-        aria-label="次のページ"
-      >
-        <span className="text-xs font-medium hidden sm:inline">次</span>
-        <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
-      </Button>
+      {/* モバイル表示（完全に非表示） */}
+      <div className="sm:hidden">
+        {/* モバイルではナビゲーションを表示しない */}
+      </div>
     </div>
   );
 }

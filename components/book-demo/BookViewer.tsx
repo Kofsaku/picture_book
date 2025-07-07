@@ -107,13 +107,12 @@ export function BookViewer({ book, className }: BookViewerProps) {
   return (
     <div
       className={cn(
-        "relative w-full mx-auto",
-        "bg-white overflow-hidden",
+        "relative w-full mx-auto overflow-hidden",
+        className?.includes("h-full") ? "bg-black" : "bg-white",
         // Full screen for demo page, responsive for LP
         className?.includes("h-full") 
-          ? "h-full w-full" 
-          : "h-[85vh] landscape:h-[90vh] sm:h-auto sm:max-w-5xl sm:rounded-2xl sm:shadow-2xl",
-        "flex flex-col",
+          ? "h-screen w-screen fixed inset-0" 
+          : "h-[85vh] landscape:h-[90vh] sm:h-auto sm:max-w-5xl sm:rounded-2xl sm:shadow-2xl flex flex-col",
         className
       )}
       onTouchStart={handleTouchStart}
@@ -148,7 +147,7 @@ export function BookViewer({ book, className }: BookViewerProps) {
       <div className={cn(
         "relative overflow-hidden",
         className?.includes("h-full") 
-          ? "flex-1" 
+          ? "h-screen w-screen" 
           : "flex-1 sm:aspect-[16/10] sm:flex-none"
       )}>
         {/* Slides container */}
@@ -168,6 +167,7 @@ export function BookViewer({ book, className }: BookViewerProps) {
                 page={page}
                 isVisible={!isAnimating}
                 className="h-full"
+                isFullScreen={isFullScreen}
               />
             </div>
           ))}
@@ -199,23 +199,6 @@ export function BookViewer({ book, className }: BookViewerProps) {
         />
       </div>
 
-      {/* Navigation controls */}
-      <div className={cn(
-        "flex-shrink-0",
-        className?.includes("h-full") 
-          ? "p-2 bg-black/80 backdrop-blur-sm absolute bottom-0 left-0 right-0 z-30" 
-          : "p-2 sm:p-4 bg-gradient-to-r from-blue-50 to-pink-50"
-      )}>
-        <NavigationControls
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onNext={goToNext}
-          onPrevious={goToPrevious}
-          canGoNext={canGoNext}
-          canGoPrevious={canGoPrevious}
-          isFullScreen={isFullScreen}
-        />
-      </div>
     </div>
   );
 }

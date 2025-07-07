@@ -21,6 +21,7 @@ export interface PageContentProps {
   page: BookPage;
   isVisible?: boolean;
   className?: string;
+  isFullScreen?: boolean;
 }
 
 export interface NavigationControlsProps {

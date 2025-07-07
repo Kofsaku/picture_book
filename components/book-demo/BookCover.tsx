@@ -35,7 +35,7 @@ export function BookCover({ className }: BookCoverProps) {
           <div className="relative group cursor-pointer">
             {/* Book cover container */}
             <Link href="/demo">
-              <div className="relative mx-auto max-w-md md:max-w-lg aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-3xl">
+              <div className="relative mx-auto max-w-xs md:max-w-md aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-3xl">
                 <Image
                   src={sampleBook.coverImage}
                   alt={`${sampleBook.title}の表紙`}
@@ -49,11 +49,11 @@ export function BookCover({ className }: BookCoverProps) {
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300" />
                 
                 {/* Play button overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
+                {/* <div className="absolute inset-0 flex items-center justify-center">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full p-6 transform transition-all duration-300 group-hover:scale-110 shadow-xl">
                     <Play className="w-8 h-8 text-pink-600 ml-1" />
                   </div>
-                </div>
+                </div> */}
                 
                 {/* Title overlay */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
