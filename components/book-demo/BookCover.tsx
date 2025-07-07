@@ -111,7 +111,7 @@ export function BookCover({ className }: BookCoverProps) {
               className="border-pink-300 text-pink-600 hover:bg-pink-50 hover:border-pink-400 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg mr-4"
             >
               <Eye className="w-5 h-5 mr-2" />
-              絵本デモを体験する
+              絵本デモを見てみる
             </Button>
           </Link>
           
