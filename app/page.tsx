@@ -784,7 +784,10 @@ export default function Home() {
       {/* Form Section */}
       <section id="form" className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 text-gray-800">無料体験お申し込み</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 text-gray-800">無料体験はGoogleフォームで受け付けております。</h2>
+          <div className="max-w-2xl mx-auto">
+            <BookForm />
+          </div>
           <div className="max-w-2xl mx-auto mb-8 bg-blue-50 p-6 rounded-lg">
             <h3 className="text-base sm:text-lg font-semibold mb-3 text-center">お子様だけの特別な絵本が持つ価値</h3>
             <ul className="space-y-2 text-sm sm:text-base">
@@ -802,9 +805,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <div className="max-w-2xl mx-auto">
-            <BookForm />
-          </div>
+
         </div>
       </section>
 

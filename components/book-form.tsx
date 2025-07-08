@@ -312,10 +312,10 @@ export default function BookForm() {
     //   </form>
     // </Form>
     <div className="text-center py-12 px-4">
-      <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
+      {/* <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
         <CheckCircle className="w-8 h-8 text-green-600" />
-      </div>
-      <h3 className="text-2xl font-bold mb-4">無料体験はGoogleフォームで受け付けております</h3>
+      </div> */}
+      {/* <h3 className="text-2xl font-bold mb-4">無料体験はGoogleフォームで受け付けております</h3> */}
       <p className="text-gray-600 mb-6">
         下のボタンから、Googleフォームにアクセスしてお申し込みください。
         <br />
