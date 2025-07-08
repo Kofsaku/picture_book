@@ -311,11 +311,7 @@ export default function BookForm() {
     //     </div>
     //   </form>
     // </Form>
-    <div className="text-center py-12 px-4">
-      {/* <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
-        <CheckCircle className="w-8 h-8 text-green-600" />
-      </div> */}
-      {/* <h3 className="text-2xl font-bold mb-4">無料体験はGoogleフォームで受け付けております</h3> */}
+    <div className="text-center py-8 px-4">
       <p className="text-gray-600 mb-6">
         下のボタンから、Googleフォームにアクセスしてお申し込みください。
         <br />
@@ -323,12 +319,12 @@ export default function BookForm() {
       </p>
       <Button
         size="lg"
-        className="bg-pink-500 hover:bg-pink-600 text-white rounded-full px-8 py-6 text-lg"
+        className="bg-pink-500 hover:bg-pink-600 text-white rounded-full px-8 py-6 text-lg mb-4"
         onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScmhjhInoJ_oBKjMhBpy840K49THCTuVfuvKH1PcEZ0tqIHhQ/viewform?usp=dialog', '_blank')}
       >
         Googleフォームで申し込む
       </Button>
-      <p className="text-sm text-gray-500 mt-4">
+      <p className="text-sm text-gray-500">
         ※現在は初期無料モニター期間中のため、制作にお時間をいただく場合があります。
         <br />
         ※内容を元にAIと作家が最適な絵本を制作します。
