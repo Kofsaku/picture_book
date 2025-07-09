@@ -27,7 +27,7 @@ export default function Home() {
           <p className="text-base sm:text-lg md:text-xl mb-8" style={{ color: '#2d5016', textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
             名前・性格・好きなことに合わせて物語が変わる。
             <br />
-            AIと作家が"わが子専用のストーリー"をPDFでお届け。
+            お子様専用の"オリジナル絵本"を制作するサービスです。
             <br />
             今だけ、無料体験モニターを受付中。
           </p>
@@ -83,7 +83,7 @@ export default function Home() {
       <section 
         className="py-16 bg-cover bg-center bg-no-repeat relative empathy-section"
       >
-        <div className="absolute inset-0 bg-white bg-opacity-70"></div>
+        <div className="absolute inset-0 bg-white/80"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-6 leading-tight">
@@ -224,9 +224,9 @@ export default function Home() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg sm:text-xl font-semibold mb-3">AI＋作家が制作</h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-3">プロの制作チーム</h3>
                 <p className="text-sm sm:text-base text-gray-700">
-                  子どもの名前、好きなもの、性格などをもとにAIがベースストーリーを生成し、編集スタッフが子どもに合う表現に調整しています
+                  デジタル技術と人の感性を組み合わせ、お子様に最適な物語を作り上げています
                 </p>
               </div>
             </div>
@@ -301,7 +301,7 @@ export default function Home() {
                 height={160}
                 className="mb-4 rounded-lg"
               />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center">AI＋作家が絵本を制作</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center">制作チームが絵本を作成</h3>
               <p className="text-sm sm:text-base text-gray-600 text-center max-w-xs">
                 1人ひとりの情報を反映した世界に一つだけの絵本を作ります
               </p>
@@ -588,20 +588,20 @@ export default function Home() {
                   answer: "はい、初期モニターのため無料で体験いただけます。将来的には有料サービスとなる予定です。"
                 },
                 {
-                  question: "いつ届きますか？",
-                  answer: "通常1〜2週間以内にPDF形式でお送りします。応募状況によって多少前後する場合があります。"
+                  question: "いつ完成しますか？",
+                  answer: "通常1週間前後で完成します。応募状況によって多少前後する場合があります。"
                 },
                 {
                   question: "兄弟分も作れますか？",
                   answer: "1人につき1冊まで対応しています。ご兄弟分は別でご登録ください。"
                 },
                 {
-                  question: "印刷版はありますか？",
-                  answer: "現在はPDF版のみをメールでお届けしています。印刷サービスは将来的に提供予定です。ご自身でPDFを印刷することも可能です。"
+                  question: "製本版の提供はありますか？",
+                  answer: "現在は電子書籍版のみをお届けしています。製本サービスは将来的に提供予定です。"
                 },
                 {
                   question: "子どもが気に入らなかったら？",
-                  answer: "すべての絵本はAIが生成後、人の目で最終確認を行っていますが、ご希望があれば1回まで再作成も検討可能です。（今後の機能として）"
+                  answer: "全ての絵本は制作チームがご依頼時のアンケートに沿って制作いたします。ご満足いただけない場合は1回まで無料修正を承っております。"
                 },
                 {
                   question: "兄弟姉妹で絵本の内容がかぶりませんか？",

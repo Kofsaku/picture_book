@@ -315,7 +315,7 @@ export default function BookForm() {
       <p className="text-gray-600 mb-6">
         下のボタンから、Googleフォームにアクセスしてお申し込みください。
         <br />
-        数日以内に、オリジナル絵本をPDFでお届けします。
+        アンケートの結果を元に、数日でオリジナル絵本をご提供します。
       </p>
       <Button
         size="lg"
@@ -326,8 +326,6 @@ export default function BookForm() {
       </Button>
       <p className="text-sm text-gray-500">
         ※現在は初期無料モニター期間中のため、制作にお時間をいただく場合があります。
-        <br />
-        ※内容を元にAIと作家が最適な絵本を制作します。
       </p>
     </div>
   )
