@@ -26,47 +26,48 @@ export function BookCover({ className }: BookCoverProps) {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            お子様が夢中になる、パーソナライズされた絵本の世界
+            お子様が夢中になる、パーソナライズされた特別な絵本
           </p>
         </div>
 
         {/* Book Cover Display */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <div className="relative group cursor-pointer">
+        <div className="max-w-4xl mx-auto mt-12">
+          <div className="relative cursor-pointer">
             {/* Book cover container */}
             <Link href="/demo">
-              <div className="relative mx-auto max-w-xs md:max-w-md aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-3xl">
-                <Image
-                  src={sampleBook.coverImage}
-                  alt={`${sampleBook.title}の表紙`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority
-                />
+              <div className="relative mx-auto max-w-sm md:max-w-lg">
+                {/* Apple-style gradient glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-35 scale-102 animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 rounded-3xl blur-lg opacity-30 scale-105"></div>
                 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300" />
-                
-                {/* Play button overlay */}
-                {/* <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-6 transform transition-all duration-300 group-hover:scale-110 shadow-xl">
-                    <Play className="w-8 h-8 text-pink-600 ml-1" />
-                  </div>
-                </div> */}
-                
-                {/* Title overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <h3 className="text-white text-xl md:text-2xl font-bold text-center">
-                    {sampleBook.title}
-                  </h3>
-                  <p className="text-white/90 text-center mt-2">
-                    クリックして絵本を読んでみる
-                  </p>
+                {/* Image container */}
+                <div className="relative z-10">
+                  <Image
+                    src="/demo_mokup.png"
+                    alt="絵本デモ"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto rounded-2xl"
+                    priority
+                  />
                 </div>
               </div>
             </Link>
           </div>
+        </div>
+
+        {/* Demo button under mockup */}
+        <div className="text-center mt-8 mb-16">
+          <Link href="/demo">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-pink-300 text-pink-600 hover:bg-pink-50 hover:border-pink-400 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg"
+            >
+              <Eye className="w-5 h-5 mr-2" />
+              絵本デモを見てみる
+            </Button>
+          </Link>
         </div>
 
         {/* Features highlights */}
@@ -104,33 +105,15 @@ export function BookCover({ className }: BookCoverProps) {
 
         {/* CTA buttons */}
         <div className="text-center space-y-4">
-          <Link href="/demo">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-pink-300 text-pink-600 hover:bg-pink-50 hover:border-pink-400 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg mr-4"
-            >
-              <Eye className="w-5 h-5 mr-2" />
-              絵本デモを見てみる
-            </Button>
-          </Link>
-          
           <div className="mt-4">
-            <Button
-              onClick={() => {
-                const formSection = document.getElementById('form');
-                if (formSection) {
-                  formSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                  });
-                }
-              }}
-              size="lg"
-              className="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg"
-            >
-              この絵本を我が子用に作る
-            </Button>
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLScmhjhInoJ_oBKjMhBpy840K49THCTuVfuvKH1PcEZ0tqIHhQ/viewform" target="_blank">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg"
+              >
+                オリジナル絵本を作る
+              </Button>
+            </Link>
           </div>
           
           <p className="text-sm text-gray-500 mt-3">

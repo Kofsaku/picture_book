@@ -319,7 +319,7 @@ export default function BookForm() {
       </p>
       <Button
         size="lg"
-        className="bg-pink-500 hover:bg-pink-600 text-white rounded-full px-8 py-6 text-lg mb-4"
+        className="bg-green-700 hover:bg-green-800 text-white rounded-full px-8 py-6 text-lg mb-4"
         onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScmhjhInoJ_oBKjMhBpy840K49THCTuVfuvKH1PcEZ0tqIHhQ/viewform?usp=dialog', '_blank')}
       >
         Googleフォームで申し込む

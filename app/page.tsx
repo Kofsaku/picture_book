@@ -13,7 +13,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-pink-50">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-green-50">
       {/* Header */}
       <Header />
 
@@ -31,15 +31,14 @@ export default function Home() {
             <br />
             今だけ、無料体験モニターを受付中。
           </p>
-          <Button
-            size="lg"
-            className="bg-green-700 hover:bg-green-800 text-white rounded-full px-8 py-6 text-lg mx-auto md:mx-0"
-            onClick={() => {
-              document.getElementById("form")?.scrollIntoView({ behavior: "smooth" })
-            }}
-          >
-            無料で絵本を作ってもらう
-          </Button>
+          <Link href="https://docs.google.com/forms/d/e/1FAIpQLScmhjhInoJ_oBKjMhBpy840K49THCTuVfuvKH1PcEZ0tqIHhQ/viewform" target="_blank">
+            <Button
+              size="lg"
+              className="bg-green-700 hover:bg-green-800 text-white rounded-full px-8 py-6 text-lg mx-auto md:mx-0"
+            >
+              無料で絵本を作ってもらう
+            </Button>
+          </Link>
         </div>
         <div className="md:w-1/2 flex justify-center items-center">
           <Image
@@ -103,20 +102,20 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row justify-center gap-8">
-            <div className="bg-blue-50 rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0">
+            <div className="rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0" style={{ backgroundColor: 'rgb(254, 249, 195)' }}>
               <Image
-                src="/happy-child-book-illustration.png"
-                alt="喜ぶ子ども"
+                src="/child-reading-book.jpg"
+                alt="子どもの興味を反映"
                 width={150}
                 height={150}
-                className="mx-auto mb-4 rounded-full"
+                className="mx-auto mb-4 rounded-full object-cover"
               />
               <h3 className="text-xl font-semibold text-center mb-2">子どもの興味を反映</h3>
               <p className="text-gray-600 text-center">
                 恐竜が好きな子には恐竜の物語、車が好きな子には車の冒険が展開します
               </p>
             </div>
-            <div className="bg-pink-50 rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0">
+            <div className="rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0" style={{ backgroundColor: 'rgb(254, 249, 195)' }}>
               <Image
                 src="/name-in-story-icon.webp"
                 alt="名前入り絵本"
@@ -127,7 +126,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-center mb-2">名前が物語に登場</h3>
               <p className="text-gray-600 text-center">主人公はお子さま自身。名前が出てくると子どもは大喜びします</p>
             </div>
-            <div className="bg-yellow-50 rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0">
+            <div className="rounded-lg p-6 flex-1 max-w-xs mx-auto md:mx-0" style={{ backgroundColor: 'rgb(254, 249, 195)' }}>
               <Image
                 src="/parent-message-icon.webp"
                 alt="親からのメッセージ"
@@ -142,78 +141,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Educational/Scientific Basis Section */}
-      <section id="education" className="py-16 bg-blue-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
-            なぜ「子どもの興味に合わせた絵本」がいいの？
-          </h2>
-          <p className="text-base sm:text-lg text-center mb-10 max-w-3xl mx-auto">
-            子ども向け教育研究から明らかになった、パーソナライズされた絵本の効果をご紹介します
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 text-pink-600">興味が"読む意欲"を自然に引き出す</h3>
-              <p className="text-sm sm:text-base text-gray-700">
-                脳の報酬系（側坐核）が活性化し、内発的な学びが育ちます。興味関連の情報は脳内でドーパミンを放出し、学習への動機付けを高めることが神経科学研究で証明されています。
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">出典：Hidi & Renninger (2006), Gruber et al. (2014)</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 text-pink-600">語彙力・理解力が驚くほど伸びる</h3>
-              <p className="text-sm sm:text-base text-gray-700">
-                意味ある文脈で提示される言葉は記憶に残りやすく、語彙習得が最大40%向上します。特に3〜7歳の言語発達期には、関連性の高い文脈での言葉の習得効果が顕著です。
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">出典：Snow & Dickinson (1991), Hart & Risley (2003)</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 text-pink-600">"好き"からの学びは深くなる</h3>
-              <p className="text-sm sm:text-base text-gray-700">
-                探究心・思考力・因果理解など非認知スキルが育ちます。子どもが興味を持つテーマでは注意持続時間が2〜3倍に延び、情報処理の深さと記憶定着率が向上することが実証されています。
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">
-                出典：Montessori理論, Bloom's Taxonomy, Cordova & Lepper (1996)
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 text-pink-600">親子の会話が増え、絆も深まる</h3>
-              <p className="text-sm sm:text-base text-gray-700">
-                会話の質と量が子どもの思考・感情発達に直結します。パーソナライズされた絵本を読むと、通常の絵本と比較して親子の対話が約60%増加し、より深い質問や感情表現が生まれることが研究で示されています。
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">出典：Hart & Risley (1995), Bus et al. (2008)</p>
-            </div>
-          </div>
-          <div className="mt-10 max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-lg sm:text-xl font-semibold mb-3 text-center text-pink-600">科学的に実証された効果</h3>
-            <p className="text-sm sm:text-base text-gray-700">
-              2019年のケンブリッジ大学の研究では、パーソナライズされた絵本を読んだ子どもたちは、標準的な絵本を読んだグループと比較して：
-            </p>
-            <ul className="list-disc pl-6 mt-3 space-y-2 text-sm sm:text-base text-gray-700">
-              <li>物語の内容理解度が31%向上</li>
-              <li>登場人物への感情移入が42%増加</li>
-              <li>読書後の関連テーマへの探究行動が56%活発化</li>
-              <li>親子間の質の高い会話（オープンエンドな質問と応答）が68%増加</li>
-            </ul>
-            <p className="text-xs sm:text-sm text-gray-500 mt-4 italic">出典：Cambridge Early Childhood Research Center (2019)</p>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mt-10 text-gray-800">
-            興味から始まる絵本体験は、
-            <br />
-            読む・学ぶ・話すすべてを豊かにしてくれます。
-          </h2>
-        </div>
-      </section>
-
       {/* Features Section */}
-      <section id="features" className="py-16 bg-white">
+      <section id="features" className="py-16" style={{ background: 'linear-gradient(134deg, rgb(255, 238, 113) 10%, rgb(255, 255, 255) 100%)' }}>
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 text-gray-800">
-            「うちのこえほん」は、
-            <br />
-            あなたのお子さま専用のストーリーをお届けする絵本サービスです。
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12" style={{ color: '#2d5016' }}>
+            お子様専用のオリジナル絵本を制作します
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-blue-50 rounded-lg text-center overflow-hidden">
+            <div className="bg-white rounded-lg text-center overflow-hidden">
               <div className="">
                 <Image
                   src="/family-reading.webp"
@@ -224,13 +159,13 @@ export default function Home() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg sm:text-xl font-semibold mb-3">プロの制作チーム</h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-3">専門制作チーム</h3>
                 <p className="text-sm sm:text-base text-gray-700">
-                  デジタル技術と人の感性を組み合わせ、お子様に最適な物語を作り上げています
+                  AIを活用したデジタル技術と作家の感性を融合させた、お子様に最適な物語を一点一点作り上げています
                 </p>
               </div>
             </div>
-            <div className="bg-pink-50 rounded-lg text-center overflow-hidden">
+            <div className="bg-white rounded-lg text-center overflow-hidden">
               <div className="">
                 <Image
                   src="/educational-care.webp"
@@ -247,7 +182,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="bg-yellow-50 rounded-lg text-center overflow-hidden">
+            <div className="bg-white rounded-lg text-center overflow-hidden">
               <div className="">
                 <Image
                   src="/digital-reading.webp"
@@ -258,11 +193,175 @@ export default function Home() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg sm:text-xl font-semibold mb-3">デジタル読み放題</h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-3">どこでも読み放題</h3>
                 <p className="text-sm sm:text-base text-gray-700">オリジナルの絵本をスマホ・タブレットでいつでも、どこでも読み聞かせできます。たくさんの絵本を出先でもかさばらずに持ち運びが可能。製本版も今後対応予定です</p>
               </div>
             </div>
           </div>
+
+          {/* Example Books Section */}
+          <div className="mt-16 space-y-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3" style={{ color: '#2d5016' }}>
+              子どもの「大好き」が詰まった特別な絵本体験
+            </h2>
+            <p className="text-base sm:text-lg text-center mb-12 max-w-3xl mx-auto mt-2" style={{ color: '#2d5016' }}>
+              お子さまの興味を反映させた、世界にひとつだけのオリジナル絵本をお作りします。
+            </p>
+            
+            {/* Example 1 - 犬のポチが好きな3歳の男の子 */}
+            <div className="flex flex-col md:flex-row items-center gap-8 max-w-6xl mx-auto">
+              <div className="flex-1 md:pr-8">
+                <div className="p-6">
+                  <h3 className="font-bold mb-4 text-2xl sm:text-3xl" style={{ color: '#2d5016' }}>🐕 犬のポチが好きな3歳の男の子</h3>
+                  <p className="text-sm sm:text-base text-gray-600">「たろうくんとポチの大冒険」<br />
+                  たろうくんと愛犬ポチが森で迷子になった動物を助ける冒険物語。お子さまの名前と好きな犬種を組み合わせて、オリジナルのキャラクターと一緒に勇気と優しさを学ぶ心温まるストーリーを作成します。</p>
+                </div>
+              </div>
+              <div className="flex-1">
+                <div className="relative">
+                  <Image
+                    src="/boy-with-dog.jpg"
+                    alt="たろうくんとポチの大冒険"
+                    width={400}
+                    height={300}
+                    className="w-full h-auto object-cover rounded-3xl shadow-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Example 2 - お花が好きな4歳の女の子 (左右逆転) */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 max-w-6xl mx-auto">
+              <div className="flex-1 md:pr-8">
+                <div className="p-6">
+                  <h3 className="font-bold mb-4 text-2xl sm:text-3xl" style={{ color: '#2d5016' }}>🌸 お花が好きな4歳の女の子</h3>
+                  <p className="text-sm sm:text-base text-gray-600">「はなちゃんと魔法の花園」<br />
+                  はなちゃんが色とりどりの花たちと話せるようになって、枯れかけた花園を復活させる心温まる物語。お子さまの好きな花や色を取り入れて、自然の美しさと大切さを学びながら、思いやりの心を育む素敵なストーリーを作成します。</p>
+                </div>
+              </div>
+              <div className="flex-1">
+                <div className="relative">
+                  <Image
+                    src="/girl-with-flowers.jpg"
+                    alt="はなちゃんと魔法の花園"
+                    width={400}
+                    height={300}
+                    className="w-full h-auto object-cover rounded-3xl shadow-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Example 3 - 楽器が好きな5歳の男の子 */}
+            <div className="flex flex-col md:flex-row items-center gap-8 max-w-6xl mx-auto">
+              <div className="flex-1 md:pr-8">
+                <div className="p-6">
+                  <h3 className="font-bold mb-4 text-2xl sm:text-3xl" style={{ color: '#2d5016' }}>🎺 楽器が好きな5歳の男の子</h3>
+                  <p className="text-sm sm:text-base text-gray-600">「ゆうとの音楽大冒険」<br />
+                  ゆうとくんが魔法のトランペットで森の動物たちと楽しい音楽会を開く、音とリズムに溢れた冒険物語。お子さまの好きな楽器や音楽に合わせて、音楽の楽しさと仲間との協力の大切さを学べる、メロディーに満ちた特別なストーリーを作成します。</p>
+                </div>
+              </div>
+              <div className="flex-1">
+                <div className="relative">
+                  <Image
+                    src="/boy-with-violin.jpg"
+                    alt="ゆうとの音楽大冒険"
+                    width={400}
+                    height={300}
+                    className="w-full h-auto object-cover rounded-3xl shadow-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Educational/Scientific Basis Section */}
+      <section id="education" className="py-16 bg-white relative">
+        {/* Grid background pattern */}
+        <div 
+          className="absolute inset-0 opacity-60"
+          style={{
+            backgroundImage: 'url(/bg-ptn01.webp)',
+            backgroundRepeat: 'repeat',
+            backgroundSize: 'auto',
+            backgroundPosition: 'center'
+          }}
+        ></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
+            なぜ「子どもの興味に合わせた絵本」がいいの？
+          </h2>
+          <p className="text-base sm:text-lg text-center mb-10 max-w-3xl mx-auto text-gray-600">
+            子ども向け教育研究から明らかになった、パーソナライズされた絵本の効果をご紹介します
+          </p>
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible defaultValue="item-1" className="space-y-4">
+              <AccordionItem value="item-1" className="bg-gray-100 rounded-lg px-6">
+                <AccordionTrigger className="text-base sm:text-xl font-semibold text-gray-900 hover:text-gray-700">
+                  興味が"読む意欲"を自然に引き出す
+                </AccordionTrigger>
+                <AccordionContent className="text-sm sm:text-base text-gray-700">
+                  脳の報酬系（側坐核）が活性化し、内発的な学びが育ちます。興味関連の情報は脳内でドーパミンを放出し、学習への動機付けを高めることが神経科学研究で証明されています。
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">出典：Hidi & Renninger (2006), Gruber et al. (2014)</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-2" className="bg-gray-100 rounded-lg px-6">
+                <AccordionTrigger className="text-base sm:text-xl font-semibold text-gray-900 hover:text-gray-700">
+                  語彙力・理解力が驚くほど伸びる
+                </AccordionTrigger>
+                <AccordionContent className="text-sm sm:text-base text-gray-700">
+                  意味ある文脈で提示される言葉は記憶に残りやすく、語彙習得が最大40%向上します。特に3〜7歳の言語発達期には、関連性の高い文脈での言葉の習得効果が顕著です。
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">出典：Snow & Dickinson (1991), Hart & Risley (2003)</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-3" className="bg-gray-100 rounded-lg px-6">
+                <AccordionTrigger className="text-base sm:text-xl font-semibold text-gray-900 hover:text-gray-700">
+                  "好き"からの学びは深くなる
+                </AccordionTrigger>
+                <AccordionContent className="text-sm sm:text-base text-gray-700">
+                  探究心・思考力・因果理解など非認知スキルが育ちます。子どもが興味を持つテーマでは注意持続時間が2〜3倍に延び、情報処理の深さと記憶定着率が向上することが実証されています。
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">
+                    出典：Montessori理論, Bloom's Taxonomy, Cordova & Lepper (1996)
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-4" className="bg-gray-100 rounded-lg px-6">
+                <AccordionTrigger className="text-base sm:text-xl font-semibold text-gray-900 hover:text-gray-700">
+                  親子の会話が増え、絆も深まる
+                </AccordionTrigger>
+                <AccordionContent className="text-sm sm:text-base text-gray-700">
+                  会話の質と量が子どもの思考・感情発達に直結します。パーソナライズされた絵本を読むと、通常の絵本と比較して親子の対話が約60%増加し、より深い質問や感情表現が生まれることが研究で示されています。
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">出典：Hart & Risley (1995), Bus et al. (2008)</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="scientific-evidence" className="bg-gray-100 rounded-lg px-6">
+                <AccordionTrigger className="text-base sm:text-xl font-semibold text-gray-900 hover:text-gray-700">
+                  科学的に実証された効果
+                </AccordionTrigger>
+                <AccordionContent className="text-sm sm:text-base text-gray-700">
+                  2019年のケンブリッジ大学の研究では、パーソナライズされた絵本を読んだ子どもたちは、標準的な絵本を読んだグループと比較して：
+                  <ul className="list-disc pl-6 mt-3 space-y-2">
+                    <li>物語の内容理解度が31%向上</li>
+                    <li>登場人物への感情移入が42%増加</li>
+                    <li>読書後の関連テーマへの探究行動が56%活発化</li>
+                    <li>親子間の質の高い会話（オープンエンドな質問と応答）が68%増加</li>
+                  </ul>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-4 italic">出典：Cambridge Early Childhood Research Center (2019)</p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mt-10 text-gray-800">
+            興味から始まる絵本体験は、
+            <br />
+            読む・学ぶ・話すすべてを豊かにしてくれます。
+          </h2>
         </div>
       </section>
 
@@ -270,14 +369,14 @@ export default function Home() {
       <BookCover />
 
       {/* Process Section */}
-      <section className="py-16 bg-blue-50">
+      <section className="py-16" style={{ backgroundColor: '#FEF9C3' }}>
         <div className="container mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 text-gray-800">
             3ステップで、"うちの子専用"絵本が届きます。
           </h2>
-          <div className="flex flex-col md:flex-row justify-between max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between max-w-5xl mx-auto gap-8">
             <div className="flex flex-col items-center mb-8 md:mb-0">
-              <div className="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
+              <div className="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 1
               </div>
               <Image
@@ -291,7 +390,7 @@ export default function Home() {
               <p className="text-sm sm:text-base text-gray-600 text-center max-w-xs">名前、年齢、好きなこと、伝えたいことを教えてください</p>
             </div>
             <div className="flex flex-col items-center mb-8 md:mb-0">
-              <div className="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
+              <div className="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 2
               </div>
               <Image
@@ -307,7 +406,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <div className="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
+              <div className="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 3
               </div>
               <Image
@@ -396,7 +495,7 @@ export default function Home() {
       </section> */}
 
       {/* Enhanced Future Features Section with Upsell Foundation */}
-      <section id="future" className="py-16 bg-gradient-to-r from-blue-50 to-purple-50">
+      <section id="future" className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
             紙ではできない、"オンラインならでは"の絵本体験へ。
@@ -434,62 +533,53 @@ export default function Home() {
           </div> */}
 
           {/* Interactive Features */}
-          <div className="flex flex-col items-center w-full mb-12">
-            {/* 1段目 3枚 */}
-            <div className="flex flex-col md:flex-row justify-center gap-6 w-full mb-6">
-              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="mb-4">
-                  <Image src="/tap-sound-icon.jpg" alt="音が鳴る機能" width={150} height={150} className="rounded-full object-cover" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">タップで音が鳴る</h3>
-                <p className="text-sm sm:text-base text-gray-600">楽器や動物など、画面をタップすると音が鳴る仕掛けが楽しめます</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
+            <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center">
+              <div className="mb-4">
+                <Image src="/tap-sound-icon.jpg" alt="音が鳴る機能" width={150} height={150} className="rounded-full object-cover" />
               </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="mb-4">
-                  <Image src="/animated-character-icon.webp" alt="動くキャラクター" width={150} height={150} className="rounded-full object-cover" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">キャラクターが動く</h3>
-                <p className="text-sm sm:text-base text-gray-600">キャラクターが「しゃべる・笑う・動く」インタラクティブな体験</p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="mb-4">
-                  <Image src="/story-branching-icon.webp" alt="ストーリー分岐" width={150} height={150} className="rounded-full object-cover" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">ストーリーが分岐</h3>
-                <p className="text-sm sm:text-base text-gray-600">選択肢によってストーリーが変わる、何度も楽しめる仕掛け</p>
-              </div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">タップで音が鳴る</h3>
+              <p className="text-sm sm:text-base text-gray-600">楽器や動物など、画面をタップすると音が鳴る仕掛けが楽しめます</p>
             </div>
-            {/* 2段目 2枚 */}
-            <div className="flex justify-center gap-6 w-full mb-6">
-              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="mb-4">
-                  <Image src="/narration-icon.webp" alt="ナレーション機能" width={150} height={150} className="rounded-full object-cover" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">ナレーション付き</h3>
-                <p className="text-sm sm:text-base text-gray-600">読み聞かせ不要で、子どもだけでも楽しめる音声ナレーション</p>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center">
+              <div className="mb-4">
+                <Image src="/animated-character-icon.webp" alt="動くキャラクター" width={150} height={150} className="rounded-full object-cover" />
               </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="mb-4">
-                  <Image src="/reading-history-icon.webp" alt="読書記録" width={150} height={150} className="rounded-full object-cover" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">読書記録が残る</h3>
-                <p className="text-sm sm:text-base text-gray-600">絵本を読んだ記録が残り、成長の振り返りができます</p>
-              </div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">キャラクターが動く</h3>
+              <p className="text-sm sm:text-base text-gray-600">キャラクターが「しゃべる・笑う・動く」インタラクティブな体験</p>
             </div>
-            {/* 3段目 1枚（英語学習機能） */}
-            <div className="flex justify-center w-full">
-              <div className="bg-white rounded-lg p-6 shadow-sm flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="mb-4">
-                  <Image src="/english-learning-icon.webp" alt="英語学習機能" width={150} height={150} className="rounded-full object-cover" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">英語学習機能</h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-4">興味のある物語を通じて、自然に英語を学べる機能を追加予定</p>
-                <ul className="space-y-2 text-sm sm:text-base text-gray-600">
-                  <li className="flex items-center justify-center"><span className="text-green-500 mr-2">✓</span>日本語と英語の切り替え表示</li>
-                  <li className="flex items-center justify-center"><span className="text-green-500 mr-2">✓</span>ネイティブスピーカーによる音声読み上げ</li>
-                  <li className="flex items-center justify-center"><span className="text-green-500 mr-2">✓</span>興味のある単語から自然に語彙を増やす</li>
-                </ul>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center">
+              <div className="mb-4">
+                <Image src="/story-branching-icon.webp" alt="ストーリー分岐" width={150} height={150} className="rounded-full object-cover" />
               </div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">ストーリーが分岐</h3>
+              <p className="text-sm sm:text-base text-gray-600">選択肢によってストーリーが変わる、何度も楽しめる仕掛け</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center">
+              <div className="mb-4">
+                <Image src="/narration-icon.webp" alt="ナレーション機能" width={150} height={150} className="rounded-full object-cover" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">ナレーション付き</h3>
+              <p className="text-sm sm:text-base text-gray-600">読み聞かせ不要で、子どもだけでも楽しめる音声ナレーション</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center">
+              <div className="mb-4">
+                <Image src="/reading-history-icon.webp" alt="読書記録" width={150} height={150} className="rounded-full object-cover" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">読書記録が残る</h3>
+              <p className="text-sm sm:text-base text-gray-600">絵本を読んだ記録が残り、成長の振り返りができます</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center">
+              <div className="mb-4">
+                <Image src="/english-learning-icon.webp" alt="英語学習機能" width={150} height={150} className="rounded-full object-cover" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">英語学習機能</h3>
+              <p className="text-sm sm:text-base text-gray-600">興味のある物語を通じて、自然に英語を学べる機能を追加予定</p>
             </div>
           </div>
 
@@ -577,8 +667,18 @@ export default function Home() {
       </section> */}
 
       {/* FAQ Section */}
-      <section id="faq" className="py-16 bg-blue-50">
-        <div className="container mx-auto px-4">
+      <section id="faq" className="py-16 bg-white relative">
+        {/* Grid background pattern */}
+        <div 
+          className="absolute inset-0 opacity-60"
+          style={{
+            backgroundImage: 'url(/bg-ptn01.webp)',
+            backgroundRepeat: 'repeat',
+            backgroundSize: 'auto',
+            backgroundPosition: 'center'
+          }}
+        ></div>
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 text-gray-800">よくあるご質問</h2>
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
@@ -609,7 +709,7 @@ export default function Home() {
                 }
               ].map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg px-6">
-                  <AccordionTrigger className="text-base sm:text-xl font-semibold text-gray-900 hover:text-pink-600">
+                  <AccordionTrigger className="text-base sm:text-xl font-semibold text-gray-900 hover:text-green-600">
                     Q：{faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-sm sm:text-base text-gray-600">
@@ -628,7 +728,7 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-800">うちのこえほんのビジョン</h2>
-            <div className="bg-gradient-to-r from-pink-50 to-blue-50 p-8 rounded-lg">
+            <div className="p-8 rounded-lg" style={{ backgroundColor: '#FEF9C3' }}>
               <p className="text-base sm:text-xl text-gray-700 mb-6">「子どもが好きになる"きっかけ"を届ける」</p>
               <p className="text-sm sm:text-lg text-gray-600 mb-6">
                 私たちは、一人ひとりの子どもの興味や個性に合わせた絵本を通じて、
@@ -765,19 +865,18 @@ export default function Home() {
       </section> */}
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-pink-100 to-blue-100">
+      <section className="py-16" style={{ backgroundColor: '#fee425' }}>
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800">今しか体験できない"うちの子専用"絵本を、あなたも。</h2>
           <p className="text-base sm:text-xl mb-8 text-gray-700">限定50名に無料で提供中（先着制）</p>
-          <Button
-            size="lg"
-            className="bg-pink-500 hover:bg-pink-600 text-white rounded-full px-8 py-6 text-lg"
-            onClick={() => {
-              document.getElementById("form")?.scrollIntoView({ behavior: "smooth" })
-            }}
-          >
-            今すぐ無料で絵本を作る
-          </Button>
+          <Link href="https://docs.google.com/forms/d/e/1FAIpQLScmhjhInoJ_oBKjMhBpy840K49THCTuVfuvKH1PcEZ0tqIHhQ/viewform" target="_blank">
+            <Button
+              size="lg"
+              className="bg-green-700 hover:bg-green-800 text-white rounded-full px-8 py-6 text-lg"
+            >
+              今すぐ無料で絵本を作る
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -785,7 +884,7 @@ export default function Home() {
       <section id="form" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">無料体験はGoogleフォームで受け付けております。</h2>
-          <div className="max-w-2xl mx-auto mb-8 bg-blue-50 p-6 rounded-lg">
+          <div className="max-w-2xl mx-auto mb-8 bg-green-50 p-6 rounded-lg">
             <h3 className="text-base sm:text-lg font-semibold mb-3 text-center">お子様だけの特別な絵本が持つ価値</h3>
             <ul className="space-y-2 text-sm sm:text-base">
               <li className="flex items-start">
