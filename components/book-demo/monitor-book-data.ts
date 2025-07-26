@@ -55,34 +55,41 @@ export const monitorBook: DemoBook = {
     },
     {
       id: 8,
-      imageUrl: "demo2/24.png",
+      imageUrl: "demo2/23.png",
       altText: "モニター用絵本の8ページ目",
+      text: "新しい機能とコンテンツの動作確認をします。",
+      highlightWords: ["新しい機能", "コンテンツ"]
+    },
+    {
+      id: 9,
+      imageUrl: "demo2/24.png",
+      altText: "モニター用絵本の9ページ目",
       text: "フルスクリーンモードでの表示品質をチェックします。",
       highlightWords: ["フルスクリーン", "表示品質"]
     },
     {
-      id: 9,
+      id: 10,
       imageUrl: "demo2/26.png",
-      altText: "モニター用絵本の9ページ目",
+      altText: "モニター用絵本の10ページ目",
       text: "アクセシビリティ機能とスクリーンリーダー対応を確認します。",
       highlightWords: ["アクセシビリティ", "スクリーンリーダー"]
     },
     {
-      id: 10,
+      id: 11,
       imageUrl: "demo2/29.png",
-      altText: "モニター用絵本の10ページ目",
+      altText: "モニター用絵本の11ページ目",
       text: "パフォーマンスとメモリ使用量を監視できます。",
       highlightWords: ["パフォーマンス", "メモリ使用量"]
     },
     {
-      id: 11,
+      id: 12,
       imageUrl: "demo2/35.png",
-      altText: "モニター用絵本の11ページ目",
+      altText: "モニター用絵本の12ページ目",
       text: "エラーハンドリングと例外処理の動作を確認します。",
       highlightWords: ["エラーハンドリング", "例外処理"]
     },
     {
-      id: 12,
+      id: 13,
       imageUrl: "demo2/37.png",
       altText: "モニター用絵本の最終ページ",
       text: "モニター用絵本のテストが完了しました。すべての機能が正常に動作しています。",
